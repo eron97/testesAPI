@@ -1,21 +1,30 @@
-// main.go
 package main
 
 import (
+	"log"
+	"os"
+
 	"github.com/eron97/testesAPI/controllers"
 	"github.com/eron97/testesAPI/database"
 	"github.com/eron97/testesAPI/routes"
 	"github.com/eron97/testesAPI/services"
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+
+	if err := godotenv.Load(".env"); err != nil {
+		log.Fatal("Erro ao carregar as variáveis de ambiente:", err)
+	}
+
 	// Configurar o banco de dados
 	dbConfig := database.Config{
-		User:     "admin",
-		Password: "adminadmin",
-		Host:     "database-1.cpj0eavfzshu.us-east-1.rds.amazonaws.com",
-		Port:     "3306",
-		Database: "users",
+		User:     os.Getenv("USER"),
+		Password: os.Getenv("PASSWORD"),
+		Host:     os.Getenv("HOST"),
+		Port:     os.Getenv("PORT"),
+		Database: os.Getenv("DATABASE"),
 	}
 
 	var db database.Database = &database.MySQLDB{} // Use a implementação real ou um mock
@@ -31,7 +40,8 @@ func main() {
 	userController := &controllers.UserController{Service: userService}
 
 	// Configurar o roteador Gin
-	router := routes.SetupRouter(userController)
+	router := gin.Default()
+	routes.SetupTodoRoutes(router, userController) // Use a função de configuração do grupo de rotas
 
 	// Iniciar o servidor
 	router.Run(":8080")

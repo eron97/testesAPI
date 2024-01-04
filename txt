@@ -1,0 +1,1 @@
+var db database.Database = &database.MySQLDB{} // Use a implementação real ou um mock
