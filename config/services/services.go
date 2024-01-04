@@ -2,8 +2,8 @@
 package services
 
 import (
-	"github.com/eron97/testesAPI/database"
-	"github.com/eron97/testesAPI/models"
+	"github.com/eron97/testesAPI/config/database"
+	"github.com/eron97/testesAPI/config/models"
 )
 
 type UserServiceInterface interface {

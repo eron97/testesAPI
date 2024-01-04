@@ -4,10 +4,10 @@ import (
 	"log"
 	"os"
 
-	"github.com/eron97/testesAPI/controllers"
-	"github.com/eron97/testesAPI/database"
-	"github.com/eron97/testesAPI/routes"
-	"github.com/eron97/testesAPI/services"
+	"github.com/eron97/testesAPI/config/controllers"
+	"github.com/eron97/testesAPI/config/database"
+	"github.com/eron97/testesAPI/config/routes"
+	"github.com/eron97/testesAPI/config/services"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )

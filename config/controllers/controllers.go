@@ -4,7 +4,7 @@ package controllers
 import (
 	"net/http"
 
-	"github.com/eron97/testesAPI/services"
+	"github.com/eron97/testesAPI/config/services"
 	"github.com/gin-gonic/gin"
 )
 

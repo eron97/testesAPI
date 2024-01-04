@@ -2,7 +2,7 @@
 package routes
 
 import (
-	"github.com/eron97/testesAPI/controllers"
+	"github.com/eron97/testesAPI/config/controllers"
 	"github.com/gin-gonic/gin"
 )
 

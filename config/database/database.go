@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/eron97/testesAPI/models"
+	"github.com/eron97/testesAPI/config/models"
 	_ "github.com/go-sql-driver/mysql"
 )
 
