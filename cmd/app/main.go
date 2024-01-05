@@ -18,7 +18,6 @@ func main() {
 		log.Fatal("Erro ao carregar as variáveis de ambiente:", err)
 	}
 
-	// Configurar o banco de dados
 	dbConfig := database.Config{
 		User:     os.Getenv("USER"),
 		Password: os.Getenv("PASSWORD"),
@@ -27,7 +26,7 @@ func main() {
 		Database: os.Getenv("DATABASE"),
 	}
 
-	var db database.Database = &database.MySQLDB{} // Use a implementação real ou um mock
+	var db database.Database = &database.MySQLDB{}
 
 	_, err := db.InitDB(dbConfig)
 	if err != nil {
